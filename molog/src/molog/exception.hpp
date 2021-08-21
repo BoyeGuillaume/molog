@@ -13,7 +13,7 @@ namespace Molog {
     public:
         MO_FUNCTION Exception(const std::string& str = "");
 
-        virtual MO_FUNCTION const char* what() const override;
+        virtual MO_FUNCTION const char* what() const noexcept override;
 
     private:
         std::string m_what;

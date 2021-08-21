@@ -8,7 +8,7 @@ MO_FUNCTION Exception::Exception(const std::string& str)
     
 }
 
-MO_FUNCTION const char* Exception::what() const
+MO_FUNCTION const char* Exception::what() const noexcept
 {
     return m_what.c_str();
 }
