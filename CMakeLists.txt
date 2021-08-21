@@ -43,5 +43,6 @@ if(${MOLOG_BUILD_TEST})
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     FetchContent_MakeAvailable(googletest)
 
+    enable_testing()
     add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/test/")
 endif()

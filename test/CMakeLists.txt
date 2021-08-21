@@ -14,4 +14,4 @@ target_link_libraries(MologTest
 # add the test
 include(GoogleTest)
 gtest_discover_tests(MologTest)
-
+add_test(NAME Molog COMMAND MologTest)
