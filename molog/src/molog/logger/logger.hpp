@@ -1,5 +1,5 @@
 /**
- * @file exception.cpp
+ * @file logger.hpp
  * @author Guillaume Boyé
  * @brief 
  * @version 0.1
@@ -31,18 +31,6 @@
  * 
  */
 
-#include "exception.hpp"
+#pragma once
 
-MO_USE_NAMESPACE;
-
-MO_FUNCTION Exception::Exception(std::string what)
-: m_what(std::move(what))
-{
-    
-}
-
-MO_FUNCTION const char* Exception::what() const noexcept
-{
-    return m_what.c_str();
-}
 
