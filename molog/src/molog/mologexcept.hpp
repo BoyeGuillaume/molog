@@ -4,6 +4,8 @@
 
 #include <molog/configure.hpp>
 
+
+
 #define __DETAILS_MO_CONCATENATE(a,b)                                                              a ## b
 #define __DETAILS_MO_STRINGIZE(x)                                                                  #x
 #define MO_EXPAND(x)                                                                               x
@@ -91,6 +93,11 @@
 
 #define MO_CLASS
 
+/**
+ * @brief Molog main namespace. All exposed symbols of the molog library are accessible only throught this namespace.
+ * Notice that you can use the macro MO_USE_NAMESPACE to use directly the function without having to specified the namespace
+ * 
+ */
 namespace Molog
 {
     using flag_t = uint32_t;

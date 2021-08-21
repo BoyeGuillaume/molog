@@ -2,8 +2,8 @@
 
 MO_USE_NAMESPACE;
 
-MO_FUNCTION Exception::Exception(const std::string& str)
-: m_what(str)
+MO_FUNCTION Exception::Exception(std::string what)
+: m_what(std::move(what))
 {
     
 }
