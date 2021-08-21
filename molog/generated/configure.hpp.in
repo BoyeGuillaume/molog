@@ -1,0 +1,10 @@
+#pragma once
+
+#define MOLOG_VERSION_MAJOR                                                                        @MOLOG_VERSION_MAJOR@
+#define MOLOG_VERSION_MINOR                                                                        @MOLOG_VERSION_MINOR@
+#define MOLOG_VERSION_PATCH                                                                        @MOLOG_VERSION_PATCH@
+#define MOLOG_VERSION                                                                              "@MOLOG_VERSION@"
+
+#cmakedefine MOLOG_BUILD_SHARED
+#cmakedefine MOLOG_VALIDATION_LAYER
+#cmakedefine MOLOG_ENABLE_STACKTRACE
