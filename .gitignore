@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Build folder
+[bB]uild/
+[oO]ut/
+
+# cache
+.vs/
+.vscode/
+*.ipynb
