@@ -5,28 +5,7 @@
  * @date 2021-08-21
  * 
  * @copyright MIT License
- * 
  * Copyright (c) 2021 Guillaume Boyé
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the 
- * ), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED 
- * , WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
  * 
  */
 
@@ -44,6 +23,7 @@
 #define MO_CONCATENATE(a,b)                                                                        __DETAILS_MO_CONCATENATE(a,b)
 #define MO_STRINGIZE(x)                                                                            __DETAILS_MO_STRINGIZE(x)
 #define MO_USE_NAMESPACE                                                                           using namespace Molog
+#define MO_NOEXCEPT                                                                                noexcept
 
 #define MO_SUCCESS                                                                                 0
 #define MO_FAILURE                                                                                 1
@@ -115,12 +95,15 @@
  
  #ifdef __MO_DLL_EXPORT
   #define MO_FUNCTION                                                                                __MO_SHARED_EXPORT
+  #define MO_EXPORT                                                                                  __MO_SHARED_EXPORT
  #else
   #define MO_FUNCTION                                                                                __MO_SHARED_IMPORT
+  #define MO_EXPORT                                                                                  __MO_SHARED_EXPORT
  #endif
 
 #else
  #define MO_FUNCTION
+ #define MO_EXPORT
 #endif
 
 #define MO_CLASS
