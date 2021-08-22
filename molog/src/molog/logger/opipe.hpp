@@ -1,7 +1,7 @@
 /**
  * @file opipe.hpp
  * @author Guillaume Boyé
- * @version 0.1
+ * @version 0.1.2
  * @date 2021-08-21
  * 
  * @copyright MIT License
@@ -140,12 +140,14 @@ namespace Molog {
 
     /**
      * @brief defines a basic pipe that can be written to. Each pipe are linked
-     * to an Molog::OPipeImpl. Notice that the implementation may change throughout the execution
-     * and isn't guarente to stay imuable
+     * with a Molog::OPipeImpl. 
+     * 
+     * @note the implementation may change throughout the execution
+     * and isn't guarented to stay imuable
      * 
      * Notice that if an OPipe is given no implementation it's default behavior will be to do nothing
      */
-    class MO_CLASS OPipe {
+    class MO_CLASS OPipe final {
         MO_DISABLE_COPY_MOVE(OPipe);
     public:
         /**
@@ -172,7 +174,12 @@ namespace Molog {
              * @brief whever or not the pipe is buffered (in which case
              * the writing operation is guarente to be done when receiving Endl)
              */
-            Buffered   = 1 << 3
+            Buffered   = 1 << 3,
+
+            /**
+             * @brief mark a input as EndOfFile state
+             */
+            EndOfFile = 1 << 4
         };
 
         /**
