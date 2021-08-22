@@ -1,8 +1,21 @@
+/**
+ * @file mologexcept.hpp
+ * @author Guillaume Boyé
+ * @version 0.1.2
+ * @date 2021-08-21
+ * 
+ * @copyright MIT License
+ * Copyright (c) 2021 Guillaume Boyé
+ * 
+ */
+
 #pragma once
 
 #include <stdexcept>
 
 #include <molog/configure.hpp>
+
+
 
 #define __DETAILS_MO_CONCATENATE(a,b)                                                              a ## b
 #define __DETAILS_MO_STRINGIZE(x)                                                                  #x
@@ -10,6 +23,7 @@
 #define MO_CONCATENATE(a,b)                                                                        __DETAILS_MO_CONCATENATE(a,b)
 #define MO_STRINGIZE(x)                                                                            __DETAILS_MO_STRINGIZE(x)
 #define MO_USE_NAMESPACE                                                                           using namespace Molog
+#define MO_NOEXCEPT                                                                                noexcept
 
 #define MO_SUCCESS                                                                                 0
 #define MO_FAILURE                                                                                 1
@@ -81,16 +95,24 @@
  
  #ifdef __MO_DLL_EXPORT
   #define MO_FUNCTION                                                                                __MO_SHARED_EXPORT
+  #define MO_EXPORT                                                                                  __MO_SHARED_EXPORT
  #else
   #define MO_FUNCTION                                                                                __MO_SHARED_IMPORT
+  #define MO_EXPORT                                                                                  __MO_SHARED_EXPORT
  #endif
 
 #else
  #define MO_FUNCTION
+ #define MO_EXPORT
 #endif
 
 #define MO_CLASS
 
+/**
+ * @brief Molog main namespace. All exposed symbols of the molog library are accessible only throught this namespace.
+ * Notice that you can use the macro MO_USE_NAMESPACE to use directly the function without having to specified the namespace
+ * 
+ */
 namespace Molog
 {
     using flag_t = uint32_t;

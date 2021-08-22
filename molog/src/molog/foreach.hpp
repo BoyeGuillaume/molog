@@ -1,8 +1,20 @@
+/**
+ * @file foreach.hpp
+ * @author Guillaume Boyé
+ * @version 0.1.2
+ * @date 2021-08-21
+ * 
+ * @copyright MIT License
+ * Copyright (c) 2021 Guillaume Boyé
+ * 
+ */
+
 #pragma once
 
 #include <molog/mologexcept.hpp>
 
-
+/*! \cond PRIVATE */
+#pragma region Private Implementation
 #define MO_FOR_EACH_P0_0(WHAT)
 #define MO_FOR_EACH_P0_1(WHAT, x)                                                                  WHAT(x)
 #define MO_FOR_EACH_P0_2(WHAT, x, ...)                                                             WHAT(x) MO_EXPAND(MO_FOR_EACH_P0_1(WHAT, __VA_ARGS__))
@@ -68,7 +80,7 @@
 #define MO_FOR_EACH_P0_62(WHAT, x, ...)                                                            WHAT(x) MO_EXPAND(MO_FOR_EACH_P0_61(WHAT, __VA_ARGS__))
 
 #define MO_FOR_EACH_P0_(IT, WHAT, ...)                                                             MO_EXPAND(IT(WHAT, __VA_ARGS__))
-#define MO_FOR_EACH_P0(WHAT, ...)                                                                  MO_FOR_EACH_P0_(MO_CONCATENATE(MO_FOR_EACH_P0_, MO_PP_NARGS(__VA_ARGS__)), WHAT, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P1_0(WHAT, p0)
@@ -136,7 +148,7 @@
 #define MO_FOR_EACH_P1_62(WHAT, p0, x, ...)                                                        WHAT(p0, x) MO_EXPAND(MO_FOR_EACH_P1_61(WHAT, p0, __VA_ARGS__))
 
 #define MO_FOR_EACH_P1_(IT, WHAT, p0, ...)                                                         MO_EXPAND(IT(WHAT, p0, __VA_ARGS__))
-#define MO_FOR_EACH_P1(WHAT, p0, ...)                                                              MO_FOR_EACH_P1_(MO_CONCATENATE(MO_FOR_EACH_P1_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P2_0(WHAT, p0, p1)
@@ -204,7 +216,6 @@
 #define MO_FOR_EACH_P2_62(WHAT, p0, p1, x, ...)                                                    WHAT(p0, p1, x) MO_EXPAND(MO_FOR_EACH_P2_61(WHAT, p0, p1, __VA_ARGS__))
 
 #define MO_FOR_EACH_P2_(IT, WHAT, p0, p1, ...)                                                     MO_EXPAND(IT(WHAT, p0, p1, __VA_ARGS__))
-#define MO_FOR_EACH_P2(WHAT, p0, p1, ...)                                                          MO_FOR_EACH_P2_(MO_CONCATENATE(MO_FOR_EACH_P2_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, __VA_ARGS__)
 
 
 #define MO_FOR_EACH_P3_0(WHAT, p0, p1, p2)
@@ -272,7 +283,7 @@
 #define MO_FOR_EACH_P3_62(WHAT, p0, p1, p2, x, ...)                                                WHAT(p0, p1, p2, x) MO_EXPAND(MO_FOR_EACH_P3_61(WHAT, p0, p1, p2, __VA_ARGS__))
 
 #define MO_FOR_EACH_P3_(IT, WHAT, p0, p1, p2, ...)                                                 MO_EXPAND(IT(WHAT, p0, p1, p2, __VA_ARGS__))
-#define MO_FOR_EACH_P3(WHAT, p0, p1, p2, ...)                                                      MO_FOR_EACH_P3_(MO_CONCATENATE(MO_FOR_EACH_P3_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P4_0(WHAT, p0, p1, p2, p3)
@@ -340,7 +351,7 @@
 #define MO_FOR_EACH_P4_62(WHAT, p0, p1, p2, p3, x, ...)                                            WHAT(p0, p1, p2, p3, x) MO_EXPAND(MO_FOR_EACH_P4_61(WHAT, p0, p1, p2, p3, __VA_ARGS__))
 
 #define MO_FOR_EACH_P4_(IT, WHAT, p0, p1, p2, p3, ...)                                             MO_EXPAND(IT(WHAT, p0, p1, p2, p3, __VA_ARGS__))
-#define MO_FOR_EACH_P4(WHAT, p0, p1, p2, p3, ...)                                                  MO_FOR_EACH_P4_(MO_CONCATENATE(MO_FOR_EACH_P4_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P5_0(WHAT, p0, p1, p2, p3, p4)
@@ -408,7 +419,7 @@
 #define MO_FOR_EACH_P5_62(WHAT, p0, p1, p2, p3, p4, x, ...)                                        WHAT(p0, p1, p2, p3, p4, x) MO_EXPAND(MO_FOR_EACH_P5_61(WHAT, p0, p1, p2, p3, p4, __VA_ARGS__))
 
 #define MO_FOR_EACH_P5_(IT, WHAT, p0, p1, p2, p3, p4, ...)                                         MO_EXPAND(IT(WHAT, p0, p1, p2, p3, p4, __VA_ARGS__))
-#define MO_FOR_EACH_P5(WHAT, p0, p1, p2, p3, p4, ...)                                              MO_FOR_EACH_P5_(MO_CONCATENATE(MO_FOR_EACH_P5_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P6_0(WHAT, p0, p1, p2, p3, p4, p5)
@@ -476,7 +487,7 @@
 #define MO_FOR_EACH_P6_62(WHAT, p0, p1, p2, p3, p4, p5, x, ...)                                    WHAT(p0, p1, p2, p3, p4, p5, x) MO_EXPAND(MO_FOR_EACH_P6_61(WHAT, p0, p1, p2, p3, p4, p5, __VA_ARGS__))
 
 #define MO_FOR_EACH_P6_(IT, WHAT, p0, p1, p2, p3, p4, p5, ...)                                     MO_EXPAND(IT(WHAT, p0, p1, p2, p3, p4, p5, __VA_ARGS__))
-#define MO_FOR_EACH_P6(WHAT, p0, p1, p2, p3, p4, p5, ...)                                          MO_FOR_EACH_P6_(MO_CONCATENATE(MO_FOR_EACH_P6_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, p5, __VA_ARGS__)
+
 
 
 #define MO_FOR_EACH_P7_0(WHAT, p0, p1, p2, p3, p4, p5, p6)
@@ -544,5 +555,101 @@
 #define MO_FOR_EACH_P7_62(WHAT, p0, p1, p2, p3, p4, p5, p6, x, ...)                                WHAT(p0, p1, p2, p3, p4, p5, p6, x) MO_EXPAND(MO_FOR_EACH_P7_61(WHAT, p0, p1, p2, p3, p4, p5, p6, __VA_ARGS__))
 
 #define MO_FOR_EACH_P7_(IT, WHAT, p0, p1, p2, p3, p4, p5, p6, ...)                                 MO_EXPAND(IT(WHAT, p0, p1, p2, p3, p4, p5, p6, __VA_ARGS__))
-#define MO_FOR_EACH_P7(WHAT, p0, p1, p2, p3, p4, p5, p6, ...)                                      MO_FOR_EACH_P7_(MO_CONCATENATE(MO_FOR_EACH_P7_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, p5, p6, __VA_ARGS__)
+#pragma endregion
+/*! \endcond */
 
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters
+ * 
+ * To use this macro you have to create a helper macro first that take only one argument x (we iterate over x)
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(x)                                      doStuff(x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(...)                                    MO_FOR_EACH_P0(__HELPER_DO_STUFF, __VA_ARGS__)
+ * @endcode
+ *  
+ */
+#define MO_FOR_EACH_P0(WHAT, ...)                                                                  MO_FOR_EACH_P0_(MO_CONCATENATE(MO_FOR_EACH_P0_, MO_PP_NARGS(__VA_ARGS__)), WHAT, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0 parameters passed to the MO_FOR_EACH_P1 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, x)                                 doStuff(p0, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, ...)                               MO_FOR_EACH_P1(__HELPER_DO_STUFF, p0, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P1(WHAT, p0, ...)                                                              MO_FOR_EACH_P1_(MO_CONCATENATE(MO_FOR_EACH_P1_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and p0,p1 parameters passed to the MO_FOR_EACH_P2 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, x)                             doStuff(p0, p1, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, ...)                           MO_FOR_EACH_P2(__HELPER_DO_STUFF, p0, p1, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P2(WHAT, p0, p1, ...)                                                          MO_FOR_EACH_P2_(MO_CONCATENATE(MO_FOR_EACH_P2_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0,p1,p2 parameters passed to the MO_FOR_EACH_P3 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, p2, x)                         doStuff(p0, p1, p2, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, p2, ...)                       MO_FOR_EACH_P3(__HELPER_DO_STUFF, p0, p1, p2, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P3(WHAT, p0, p1, p2, ...)                                                      MO_FOR_EACH_P3_(MO_CONCATENATE(MO_FOR_EACH_P3_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0,p1,p2 parameters passed to the MO_FOR_EACH_P4 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, p2, p3, x)                     doStuff(p0, p1, p2, p3, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, p2, p3, ...)                   MO_FOR_EACH_P3(__HELPER_DO_STUFF, p0, p1, p2, p3, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P4(WHAT, p0, p1, p2, p3, ...)                                                  MO_FOR_EACH_P4_(MO_CONCATENATE(MO_FOR_EACH_P4_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0,p1,p2,p3,p4 parameters passed to the MO_FOR_EACH_P5 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, p2, p3, p4, x)                 doStuff(p0, p1, p2, p3, p4, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, p2, p3, p4, ...)               MO_FOR_EACH_P3(__HELPER_DO_STUFF, p0, p1, p2, p3, p4, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P5(WHAT, p0, p1, p2, p3, p4, ...)                                              MO_FOR_EACH_P5_(MO_CONCATENATE(MO_FOR_EACH_P5_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0,p1,p2,p3,p4,p5 parameters passed to the MO_FOR_EACH_P6 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, p2, p3, p4, p5, x)              doStuff(p0, p1, p2, p3, p4, p5, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, p2, p3, p4, p5, ...)            MO_FOR_EACH_P3(__HELPER_DO_STUFF, p0, p1, p2, p3, p4, p5, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P6(WHAT, p0, p1, p2, p3, p4, p5, ...)                                          MO_FOR_EACH_P6_(MO_CONCATENATE(MO_FOR_EACH_P6_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, p5, __VA_ARGS__)
+
+/**
+ * @brief macro that implement a crude macro-looping utility. It enable the user to call a macro for each of the variadic parameters using one additional parameters
+ * 
+ * To use this macro you have to create a helper macro first that take one argument x (we iterate over x) and the p0,p1,p2,p3,p4,p5,p6 parameters passed to the MO_FOR_EACH_P7 macro
+ * @code {.cpp}
+ * #define __HELPER_DO_STUFF(p0, p1, p2, p3, p4, p5, p6, x)          doStuff(p0, p1, p2, p3, p4, p5, p6, x, sizeof(x))
+ * #define DO_STUFF_FOR_EACH(p0, p1, p2, p3, p4, p5, p6, ...)        MO_FOR_EACH_P3(__HELPER_DO_STUFF, p0, p1, p2, p3, p4, p5, p6, __VA_ARGS__)
+ * @endcode
+ * 
+ */
+#define MO_FOR_EACH_P7(WHAT, p0, p1, p2, p3, p4, p5, p6, ...)                                      MO_FOR_EACH_P7_(MO_CONCATENATE(MO_FOR_EACH_P7_, MO_PP_NARGS(__VA_ARGS__)), WHAT, p0, p1, p2, p3, p4, p5, p6, __VA_ARGS__)

@@ -1,3 +1,14 @@
+/**
+ * @file exception.hpp
+ * @author Guillaume Boyé
+ * @version 0.1.2
+ * @date 2021-08-21
+ * 
+ * @copyright MIT License
+ * Copyright (c) 2021 Guillaume Boyé
+ * 
+ */
+
 #pragma once
 
 #include <exception>
@@ -5,15 +16,47 @@
 
 #include <molog/mologexcept.hpp>
 
+/*! \cond PRIVATE */
+#define __HELPER_MO_EXPAND_STR(str)                                                                + ((std::string) str)
+/*! \endcond */
+
+/**
+ * @brief throw an Molog::Exception using the parameters in the macro as error message. Notice that this macro require at least one parameter
+ */
+#define MO_THROW_EXCEPTION(msg, ...)                                                               throw Molog::Exception(msg MO_FOR_EACH_P0(__HELPER_MO_EXPAND_STR, "", ##__VA_ARGS__))
 
 
 namespace Molog {
 
+    /**
+     * @brief Molog::Exception is the base exception of all exception thrown by the molog library.
+     * 
+     */
     class MO_CLASS Exception : public std::exception {
     public:
-        MO_FUNCTION Exception(const std::string& str = "");
+        /**
+         * @brief Exception construction require to pass a string as input
+         * 
+         * @param what a message giving more information about the exception and the context in which it occurred
+         */
+        MO_FUNCTION Exception(std::string what = "");
 
-        virtual MO_FUNCTION const char* what() const noexcept override;
+        /**
+         * @brief overriden method that return an C-style string containing the error message. The modern equivalent (throught the use of std::string) would be 
+         * throught the use of Exception::message()
+         * 
+         * @return const char* the C-Style error message 
+         */
+        virtual MO_FUNCTION const char* what() const MO_NOEXCEPT override;
+
+        /**
+         * @brief method that return a string containing the error message. Modern equivalent of Exception::what()
+         * 
+         * @return const std::string& a const-ref to the error message string
+         */
+        inline const std::string& message() const MO_NOEXCEPT {
+            return m_what;
+        }
 
     private:
         std::string m_what;

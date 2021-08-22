@@ -1,4 +1,9 @@
 #include <gtest/gtest.h>
+
+#include <molog/configure.hpp>
+#ifdef MOLOG_VALIDATION_LAYER
+ #undef MOLOG_VALIDATION_LAYER
+#endif
 #include <molog/assertion.hpp>
 
 class custom_exception : public std::exception {};
@@ -35,9 +40,7 @@ TEST(MoAssertion, ForceAssertion)
     EXPECT_NO_THROW(MO_FORCE_ASSERT_RETURN_SUCCESS(MO_SUCCESS));
     EXPECT_THROW(MO_FORCE_ASSERT_RETURN_SUCCESS(MO_FAILURE), Molog::Exception);
 
-#ifndef MOLOG_VALIDATION_LAYER
     EXPECT_THROW(MO_ASSERT_RETURN_SUCCESS(throw_op()), custom_exception);
     EXPECT_NO_THROW(MO_ASSERT_RETURN_SUCCESS(op_re(MO_SUCCESS)));
     EXPECT_NO_THROW(MO_ASSERT_RETURN_SUCCESS(op_re(MO_FAILURE)));
-#endif
 }
