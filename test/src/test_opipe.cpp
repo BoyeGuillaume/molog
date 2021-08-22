@@ -9,7 +9,7 @@ TEST(MoOPipe, Fn_StreamToPipeImpl) {
     std::stringstream ss;
     bool _isOpen = false;
 
-    auto& pipe = OPipe(streamToPipeImpl(ss, [&_isOpen](){ return _isOpen; }, "random", nullptr));
+    auto pipe = OPipe(streamToPipeImpl(ss, [&_isOpen](){ return _isOpen; }, "random", nullptr));
     
     EXPECT_FALSE(pipe.isOpen());
     EXPECT_TRUE(pipe.isClosed());
