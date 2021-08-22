@@ -16,7 +16,7 @@ MO_USE_NAMESPACE;
 MO_FUNCTION Exception::Exception(std::string what)
 : m_what(std::move(what))
 {
-    
+
 }
 
 MO_FUNCTION const char* Exception::what() const MO_NOEXCEPT

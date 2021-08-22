@@ -39,6 +39,52 @@ namespace Molog {
          * buffer and write it to the screen
          */
         Flush,
+
+        /**
+         * @brief Define foregrounds and backgrounds colors for colorized stream
+         */
+        Reset,
+        Bold,
+        Dark,
+        Italic,
+        Underline,
+        Blink,
+        Reserve,
+        Concealed,
+        Crossed,
+
+        ColorGrey,
+        ColorRed,
+        ColorGreen,
+        ColorYellow,
+        ColorBlue,
+        ColorMagenta,
+        ColorCyan,
+        ColorWhite,
+        ColorBrightGrey,
+        ColorBrightRed,
+        ColorBrightGreen,
+        ColorBrightYellow,
+        ColorBrightBlue,
+        ColorBrightMagenta,
+        ColorBrightCyan,
+        ColorBrightWhite,
+        BackgroundGrey,
+        BackgroundRed,
+        BackgroundGreen,
+        BackgroundYellow,
+        BackgroundBlue,
+        BackgroundMagenta,
+        BackgroundCyan,
+        BackgroundWhite,
+        BackgroundBrightGrey,
+        BackgroundBrightRed,
+        BackgroundBrightGreen,
+        BackgroundBrightYellow,
+        BackgroundBrightBlue,
+        BackgroundBrightMagenta,
+        BackgroundBrightCyan,
+        BackgroundBrightWhite,
     };
 
     /**
@@ -287,8 +333,8 @@ namespace Molog {
     MO_FUNCTION std::unique_ptr<OPipeImpl> streamToPipeImpl(std::ostream& _ostream, std::function<bool()> isOpenned, const char* name, std::function<void(bool)> changeOpenState = nullptr);
     
     /**
-     * @brief Standard pipe output
+     * @brief Standard pipe output (correspdonging to the stream std::cout)
      */
-    extern OPipe& stdpipe;
+    extern OPipe stdpipe;
 
 }
