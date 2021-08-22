@@ -20,7 +20,7 @@ MO_FUNCTION IPipe::IPipe(std::unique_ptr<IPipeImpl> impl) MO_NOEXCEPT
 
 }
 
-MO_FUNCTION IPipe::IPipe(std::nullptr_t)
+MO_FUNCTION IPipe::IPipe(std::nullptr_t) MO_NOEXCEPT
 : m_impl(nullptr),
 m_doNotThrowExceptionOnFailure(true)
 {
