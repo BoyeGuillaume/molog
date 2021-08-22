@@ -1,7 +1,7 @@
 /**
  * @file ipipe.hpp
  * @author Guillaume Boyé
- * @version 0.1.2
+ * @version 0.1.4
  * @date 2021-08-22
  * 
  * @copyright MIT License
